@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/v1/trello")
+@CrossOrigin("*")
 @RequiredArgsConstructor
 public class TrelloController {
     private final TrelloClient trelloClient;
