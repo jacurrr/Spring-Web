@@ -16,7 +16,6 @@ public class SimpleEmailService {
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleMailMessage.class);
 
     public void send(final Mail mail) {
-        System.out.println("\n\n"+mail+"\n\n");
         LOGGER.info("Starting email preparation...");
         try {
             javaMailSender.send(createMailMessage(mail));
@@ -27,12 +26,10 @@ public class SimpleEmailService {
     }
 
     private SimpleMailMessage createMailMessage(final Mail mail) {
-        System.out.println("\n\n"+mail+"\n\n");
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(mail.getMailTo());
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mail.getMessage());
-
         if(mail.getToCc() == null) {
             LOGGER.info("Cc not included.");
         }else {
