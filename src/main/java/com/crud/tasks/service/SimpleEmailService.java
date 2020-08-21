@@ -32,6 +32,13 @@ public class SimpleEmailService {
         mailMessage.setTo(mail.getMailTo());
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mail.getMessage());
+
+        if(mail.getToCc() == null) {
+            LOGGER.info("Cc not included.");
+        }else {
+            mailMessage.setCc(mail.getToCc());
+            LOGGER.info("Cc included.");
+        }
         return mailMessage;
     }
 }
