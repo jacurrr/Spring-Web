@@ -15,14 +15,16 @@ public class EmailScheduler {
     private final TaskRepository taskRepository;
     private final AdminConfig adminConfig;
     private static final String SUBJECT = "Tasks: Once a day email";
+    private String singularOrPlural;
     //@Scheduled(cron = "0 0 10 * * *")
     @Scheduled(fixedDelay = 10000)
     public void sendInformationEmail() {
         long size = taskRepository.count();
+        singularOrPlural = (size>1) ? " tasks" : " task";
         simpleEmailService.send(new Mail(
                 adminConfig.getAdminMail(),
                 SUBJECT,
-                "Currently in database you got: " + size + "tasks",
+                "Currently in database you got: " + size + singularOrPlural,
                 null
         ));
     }
