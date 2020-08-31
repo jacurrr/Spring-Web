@@ -5,8 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 @AllArgsConstructor
-@NoArgsConstructor
-@Data
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TrelloListDto {
     @JsonProperty("id")

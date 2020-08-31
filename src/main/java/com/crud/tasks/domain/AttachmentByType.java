@@ -2,12 +2,10 @@ package com.crud.tasks.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 
 @AllArgsConstructor
-@NoArgsConstructor
-@Data
+@Getter
 public class AttachmentByType {
     @JsonProperty("trello")
     Trello trello;
