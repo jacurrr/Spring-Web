@@ -14,7 +14,7 @@ public class EmailScheduler {
     private final SimpleEmailService simpleEmailService;
     private final TaskRepository taskRepository;
     private final AdminConfig adminConfig;
-    private static final String SUBJECT = "Tasks: Once a day email";
+    public static final String SUBJECT = "Tasks: Once a day email";
     private String singularOrPlural;
     @Scheduled(cron = "0 0 10 * * *")
     //@Scheduled(fixedDelay = 10000)
